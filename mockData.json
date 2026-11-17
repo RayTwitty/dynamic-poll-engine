@@ -1,0 +1,431 @@
+{
+  "id": 409638,
+  "name": "Предпочтения в сфере IT и повседневные привычки разработчика",
+  "completed_at": "2026-09-30T18:00:00+03:00",
+  "created_at": "2026-07-06T06:00:00+03:00",
+  "report": null,
+  "description": "<p align=\"center\" style=\"text-align:center\"><strong>Приглашаем Вас принять участие в опросе удовлетворенности качеством оказания услуг управляющими компаниями. Выберите варианты ответа, которые соответствуют Вашему мнению. Вся информация будет использована в обобщенном виде. </strong></p>",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Какой ваш основной язык программирования?",
+      "max_answer": 3,
+      "related_answer_id": null,
+      "skippable": true,
+      "answers": [
+        {
+          "id": 1,
+          "text": "JavaScript / TypeScript",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 2,
+          "text": "Python",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 3,
+          "text": "Java / Kotlin",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 4,
+          "text": "C#",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 5,
+          "text": "",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Какую тему для оформления IDE вы предпочитаете?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 6,
+          "text": "Темную (Dark mode)",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 7,
+          "text": "Светлую (Light mode)",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Как вы относитесь к удаленной работе?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 8,
+          "text": "Полностью удаленно",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 9,
+          "text": "Гибридный график (офис + дом)",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 10,
+          "text": "Только в офисе",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Какую операционную систему вы используете для работы?",
+      "max_answer": 0,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 11,
+          "text": "Windows",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 12,
+          "text": "macOS",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 13,
+          "text": "Linux",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Какую среду разработки (IDE) вы используете чаще всего?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 14,
+          "text": "VS Code",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 15,
+          "text": "WebStorm / продукты JetBrains",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 16,
+          "text": "Vim / Neovim",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 17,
+          "text": "",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Слушаете ли вы музыку во время написания кода?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 18,
+          "text": "Да, всегда",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 19,
+          "text": "Иногда, под настроение",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 20,
+          "text": "Нет, мне нужна полная тишина",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Какой ваш любимый напиток во время рабочего дня?",
+      "max_answer": 0,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 21,
+          "text": "Кофе",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 22,
+          "text": "Чай",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 23,
+          "text": "Вода",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 24,
+          "text": "Энергетики / Газировка",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Используете ли вы AI-ассистентов (например, GitHub Copilot) в работе?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 25,
+          "text": "Да, регулярно",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 26,
+          "text": "Редко, только для генерации рутинного кода",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 27,
+          "text": "Нет, пишу всё сам",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "Как часто вы делаете бэкапы/пушите код в репозиторий?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 28,
+          "text": "После каждого небольшого изменения",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 29,
+          "text": "В конце рабочего дня",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 30,
+          "text": "Раз в несколько дней / по завершении фичи",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "text": "Что вы делаете, если код не работает, а решение не находится?",
+      "max_answer": 0,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 31,
+          "text": "Ищу на Stack Overflow / в документации",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 32,
+          "text": "Спрашиваю у нейросети",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 33,
+          "text": "Иду гулять / отвлекаюсь (метод утёнка)",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 34,
+          "text": "Спрашиваю у коллег",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "text": "Пробелы или Табуляция?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 35,
+          "text": "Пробелы",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 36,
+          "text": "Табуляция",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "text": "Где вы чаще всего узнаете новости из мира IT?",
+      "max_answer": 0,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 37,
+          "text": "Хабр / VC.ru",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 38,
+          "text": "Telegram-каналы",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 39,
+          "text": "YouTube-каналы",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 40,
+          "text": "Reddit / Twitter (X)",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "text": "Какая часть разработки вам ближе?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 41,
+          "text": "Frontend",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 42,
+          "text": "Backend",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 43,
+          "text": "Fullstack",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 44,
+          "text": "Mobile / GameDev / Другое",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "text": "Занимаетесь ли вы пет-проектами в свободное время?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 45,
+          "text": "Да, постоянно пишу что-то свое",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 46,
+          "text": "Редко, под настроение",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 47,
+          "text": "Нет, отдыхаю от кода",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "text": "Пишете ли вы unit-тесты для своего кода?",
+      "max_answer": 1,
+      "related_answer_id": null,
+      "answers": [
+        {
+          "id": 48,
+          "text": "Да, всегда",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 49,
+          "text": "Только если требует проект",
+          "votes": 0,
+          "media": ""
+        },
+        {
+          "id": 50,
+          "text": "Редко / Тестирую вручную",
+          "votes": 0,
+          "media": ""
+        }
+      ]
+    }
+  ]
+}
