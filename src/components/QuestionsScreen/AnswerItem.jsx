@@ -1,6 +1,6 @@
 import { Form, ListGroup, ProgressBar } from 'react-bootstrap';
 
-import { wordDeclension } from '../../shared/utils';
+import { wordDeclension } from '@/shared/utils';
 
 /**
  * Карточка отдельного варианта ответа в вопросе.

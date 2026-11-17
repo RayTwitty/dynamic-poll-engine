@@ -1,6 +1,6 @@
 import { ListGroup, Button, Row, Col, Card, ProgressBar } from 'react-bootstrap';
 
-import { useQuestionsScreen } from '../../hooks/useQuestionsScreen';
+import { useQuestionsScreen } from '@/hooks/useQuestionsScreen';
 import { AnswerItem } from './AnswerItem';
 
 export function QuestionsScreen() {

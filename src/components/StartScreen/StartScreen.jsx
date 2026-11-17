@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Row, Col, Card, Spinner, Alert } from 'react-bootstrap';
 import { Download } from 'react-bootstrap-icons';
 
-import { fetchPoll } from '../../slices/pollSlice';
-import { addQuestion, setQuestions } from '../../slices/questionsSlice';
-import { navigateTo, routes } from '../../slices/routerSlice';
-import { dateFormat, getInitialPollId } from '../../shared/utils';
+import { fetchPoll } from '@/slices/pollSlice';
+import { addQuestion, setQuestions } from '@/slices/questionsSlice';
+import { navigateTo, routes } from '@/slices/routerSlice';
+import { dateFormat, getInitialPollId } from '@/shared/utils';
 
 export function StartScreen() {
   const dispatch = useDispatch();

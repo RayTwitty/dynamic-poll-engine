@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Row, Col, Card, Spinner } from 'react-bootstrap';
 
-import { setPollFinished, submitPoll } from '../../slices/pollSlice';
-import { navigateTo, routes } from '../../slices/routerSlice';
+import { setPollFinished, submitPoll } from '@/slices/pollSlice';
+import { navigateTo, routes } from '@/slices/routerSlice';
 
 export function FinishScreen({ onNotify }) {
   const dispatch = useDispatch();

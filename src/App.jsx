@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Row, Col, Toast, ToastContainer } from 'react-bootstrap';
 
-import { StartScreen } from './components/StartScreen/StartScreen';
-import { QuestionsScreen } from './components/QuestionsScreen/QuestionsScreen';
-import { FinishScreen } from './components/FinishScreen/FinishScreen';
-import { routes } from './slices/routerSlice';
+import { StartScreen } from '@/components/StartScreen/StartScreen';
+import { QuestionsScreen } from '@/components/QuestionsScreen/QuestionsScreen';
+import { FinishScreen } from '@/components/FinishScreen/FinishScreen';
+import { routes } from '@/slices/routerSlice';
 
 export default function App() {
   const path = useSelector((state) => state.router.path);

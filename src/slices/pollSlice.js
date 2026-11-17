@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { pollApi } from '../app/api';
+import { pollApi } from '@/app/api';
 
 export const fetchPoll = createAsyncThunk('poll/fetchPoll', async (pollId, { rejectWithValue }) => {
   try {

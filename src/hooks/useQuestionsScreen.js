@@ -1,15 +1,15 @@
 import { useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { incQuestionIdx, decQuestionIdx, setPollFinished } from '../slices/pollSlice';
+import { incQuestionIdx, decQuestionIdx, setPollFinished } from '@/slices/pollSlice';
 import {
   addQuestion,
   removeQuestion,
   saveAnswers,
   setQuestions,
   clearEmptyQuestions,
-} from '../slices/questionsSlice';
-import { navigateTo, routes } from '../slices/routerSlice';
+} from '@/slices/questionsSlice';
+import { navigateTo, routes } from '@/slices/routerSlice';
 
 /**
  * Извлекает из объекта вопроса список ID выбранных ответов и словарь их текстовых значений (если есть).
