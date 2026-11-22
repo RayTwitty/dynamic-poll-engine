@@ -1,20 +1,42 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+import { AnswerResult, PollData } from '@/types/poll';
 import { pollApi } from '@/app/api';
+import { RootState } from '@/app/store';
 
-export const fetchPoll = createAsyncThunk('poll/fetchPoll', async (pollId, { rejectWithValue }) => {
-  try {
-    const response = await pollApi.fetchPoll(pollId);
+interface PollSliceMeta {
+  curQuestionIdx: number;
+  completed: boolean;
+  isLoading: boolean;
+  error: string | null;
+  isSubmitting: boolean;
+  submitError: string | null;
+  submittedSuccessfully: boolean;
+}
 
-    if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
+type PollState = PollSliceMeta & Partial<PollData>;
 
-    return await response.json();
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const fetchPoll = createAsyncThunk<PollData, number, { rejectValue: string }>(
+  'poll/fetchPoll',
+  async (pollId, { rejectWithValue }) => {
+    try {
+      const response = await pollApi.fetchPoll(pollId);
+
+      if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
+
+      return (await response.json()) as PollData;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Неизвестная ошибка загрузки';
+      return rejectWithValue(message);
+    }
   }
-});
+);
 
-export const submitPoll = createAsyncThunk(
+export const submitPoll = createAsyncThunk<
+  void,
+  AnswerResult[],
+  { rejectValue: string; state: RootState }
+>(
   'poll/submitPoll',
   async (data, { rejectWithValue }) => {
     try {
@@ -22,7 +44,8 @@ export const submitPoll = createAsyncThunk(
 
       if (!response.ok) throw new Error(`Ошибка отправки: ${response.status}`);
     } catch (error) {
-      return rejectWithValue(error.message);
+      const message = error instanceof Error ? error.message : 'Неизвестная ошибка отправки';
+      return rejectWithValue(message);
     }
   },
   {
@@ -31,19 +54,21 @@ export const submitPoll = createAsyncThunk(
   }
 );
 
+const initialState: PollState = {
+  curQuestionIdx: 0,
+  completed: false,
+  // Состояние загрузки опроса (fetchPoll)
+  isLoading: true,
+  error: null,
+  // Состояние отправки ответов (submitPoll)
+  isSubmitting: false,
+  submitError: null,
+  submittedSuccessfully: false,
+};
+
 const pollSlice = createSlice({
   name: 'poll',
-  initialState: {
-    curQuestionIdx: 0,
-    completed: false,
-    // Состояние загрузки опроса (fetchPoll)
-    isLoading: true,
-    error: null,
-    // Состояние отправки ответов (submitPoll)
-    isSubmitting: false,
-    submitError: null,
-    submittedSuccessfully: false,
-  },
+  initialState,
   reducers: {
     incQuestionIdx: (state) => {
       state.curQuestionIdx++;
@@ -81,7 +106,7 @@ const pollSlice = createSlice({
       .addCase(fetchPoll.rejected, (state, action) => {
         state.isLoading = false;
         // Берем payload из rejectWithValue, а если его нет - системное сообщение
-        state.error = action.payload || action.error.message;
+        state.error = action.payload ?? action.error.message ?? 'Ошибка загрузки';
       })
 
       // Отправка ответов
@@ -95,7 +120,7 @@ const pollSlice = createSlice({
       })
       .addCase(submitPoll.rejected, (state, action) => {
         state.isSubmitting = false;
-        state.submitError = action.payload || action.error.message;
+        state.submitError = action.payload ?? action.error.message ?? 'Ошибка отправки';
       });
   },
 });
