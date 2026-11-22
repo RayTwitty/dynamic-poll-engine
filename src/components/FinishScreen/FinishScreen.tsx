@@ -1,17 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { Button, Row, Col, Card, Spinner } from 'react-bootstrap';
 
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { ScreenProps } from '@/types/ui';
 import { setPollFinished, submitPoll } from '@/slices/pollSlice';
-import { navigateTo, routes } from '@/slices/routerSlice';
+import { navigateTo, Routes } from '@/slices/routerSlice';
 
-export function FinishScreen({ onNotify }) {
-  const dispatch = useDispatch();
-  const questionsQueue = useSelector((state) => state.questions);
-  const { isSubmitting, submittedSuccessfully } = useSelector((state) => state.poll);
+export function FinishScreen({ onNotify }: ScreenProps) {
+  const dispatch = useAppDispatch();
+  const questionsQueue = useAppSelector((state) => state.questions);
+  const { isSubmitting, submittedSuccessfully } = useAppSelector((state) => state.poll);
 
   const handleReviewAnswers = () => {
     dispatch(setPollFinished());
-    dispatch(navigateTo(routes.QUESTIONS));
+    dispatch(navigateTo(Routes.QuestionsScreen));
   };
 
   const handleSendResults = async () => {
@@ -19,9 +20,9 @@ export function FinishScreen({ onNotify }) {
       const answers = questionsQueue.flatMap((question) => question.answers_result ?? []);
       await dispatch(submitPoll(answers)).unwrap();
 
-      onNotify?.('Спасибо! Ваши ответы успешно отправлены.', 'success');
+      onNotify('Спасибо! Ваши ответы успешно отправлены.', 'success');
     } catch (error) {
-      onNotify?.(`Ошибка при отправке: ${error}`, 'danger');
+      onNotify(`Ошибка при отправке: ${error}`, 'danger');
     }
   };
 

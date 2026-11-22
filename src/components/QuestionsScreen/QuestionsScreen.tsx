@@ -17,6 +17,8 @@ export function QuestionsScreen() {
     pollProgress,
   } = useQuestionsScreen();
 
+  if (!curQuestion) return null;
+
   const showMaxAnswersHint =
     !poll.completed &&
     curQuestion.max_answer > 1 &&

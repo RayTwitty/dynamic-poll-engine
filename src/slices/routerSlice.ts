@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const Routes = {
   StartScreen: 0,
-  Questions: 1,
+  QuestionsScreen: 1,
   FinishScreen: 2,
 } as const;
 
