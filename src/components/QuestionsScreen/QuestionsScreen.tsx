@@ -31,7 +31,7 @@ export function QuestionsScreen() {
     (answer) =>
       !answer.text && selectedAnswers.includes(answer.id) && !answerValues[answer.id]?.trim()
   );
-  const isNextDisabled = selectedAnswers.length === 0 || hasEmptyCustomAnswer;
+  const isNextDisabled = !poll.completed && (selectedAnswers.length === 0 || hasEmptyCustomAnswer);
 
   return (
     <Card>

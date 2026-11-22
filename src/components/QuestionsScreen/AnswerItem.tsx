@@ -54,6 +54,7 @@ export function AnswerItem({
 
       {isCustomAnswer && (
         <Form.Control
+          placeholder="Введите свой вариант ответа"
           value={customValue}
           onChange={(e) => onTextChange(answer.id, e.target.value)}
           disabled={isDisabled || !isSelected}

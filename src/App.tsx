@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <>
-      <Container>
+      <Container className="my-4">
         <Row>
           <Col sm={12} md={{ span: 8, offset: 2 }}>
             <CurrentScreen onNotify={showToast} />
