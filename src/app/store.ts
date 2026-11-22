@@ -11,3 +11,6 @@ export const store = configureStore({
     router: routerReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

@@ -1,6 +1,19 @@
 import { Form, ListGroup, ProgressBar } from 'react-bootstrap';
 
+import { Answer } from '@/types/poll';
 import { wordDeclension } from '@/shared/utils';
+
+interface AnswerItemProps {
+  answer: Answer;
+  isRadio: boolean;
+  isSelected: boolean;
+  isMaxReached: boolean;
+  isPollCompleted: boolean;
+  customValue: string;
+  totalVotes: number;
+  onToggle: (id: number, isChecked: boolean) => void;
+  onTextChange: (id: number, value: string) => void;
+}
 
 /**
  * Карточка отдельного варианта ответа в вопросе.
@@ -15,7 +28,7 @@ export function AnswerItem({
   totalVotes,
   onToggle,
   onTextChange,
-}) {
+}: AnswerItemProps) {
   const isCustomAnswer = !answer.text;
 
   // Ответ заблокирован, если опрос завершен ИЛИ достигнут лимит выбора

@@ -1,14 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { AnswerResult, Question } from '@/types/poll';
+
+const initialState: Question[] = [];
 
 const questionsSlice = createSlice({
   name: 'questions',
-  initialState: [],
+  initialState,
   reducers: {
     /**
      * Добавляет один вопрос или массив вопросов в очередь, исключая дубликаты по id.
-     * @param {Object | Object[]} action.payload
      */
-    addQuestion: (state, action) => {
+    addQuestion: (state, action: PayloadAction<Question | Question[]>) => {
       const questions = Array.isArray(action.payload) ? action.payload : [action.payload];
 
       // Используем Map для защиты от дубликатов при повторном открытии веток
@@ -20,9 +23,8 @@ const questionsSlice = createSlice({
 
     /**
      * Удаляет один вопрос или массив вопросов по их id.
-     * @param {number | number[]} action.payload
      */
-    removeQuestion: (state, action) => {
+    removeQuestion: (state, action: PayloadAction<number | number[]>) => {
       const ids = Array.isArray(action.payload) ? action.payload : [action.payload];
       const questionsSet = new Set(ids);
 
@@ -31,21 +33,20 @@ const questionsSlice = createSlice({
 
     /**
      * Сохраняет массив ответов пользователя для вопроса по его индексу в очереди.
-     * @param {{ idx: number, answers: Array<{ answer: number, answer_value: string | null }> }} action.payload
      */
-    saveAnswers: (state, action) => {
+    saveAnswers: (state, action: PayloadAction<{ idx: number; answers: AnswerResult[] }>) => {
       const { idx, answers } = action.payload;
       if (state[idx]) {
         state[idx].answers_result = answers;
       }
     },
 
-    setQuestions: (state, action) => {
+    setQuestions: (_, action: PayloadAction<Question[]>) => {
       return action.payload;
     },
 
     clearEmptyQuestions: (state) => {
-      return state.filter((question) => question.answers_result?.length > 0);
+      return state.filter((question) => (question.answers_result?.length ?? 0) > 0);
     },
   },
 });

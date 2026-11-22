@@ -1,17 +1,19 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Button, Row, Col, Card, Spinner, Alert } from 'react-bootstrap';
 import { Download } from 'react-bootstrap-icons';
 
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { Question } from '@/types/poll';
+import { ScreenProps } from '@/types/ui';
 import { fetchPoll } from '@/slices/pollSlice';
 import { addQuestion, setQuestions } from '@/slices/questionsSlice';
-import { navigateTo, routes } from '@/slices/routerSlice';
+import { navigateTo, Routes } from '@/slices/routerSlice';
 import { dateFormat, getInitialPollId } from '@/shared/utils';
 
-export function StartScreen() {
-  const dispatch = useDispatch();
-  const poll = useSelector((state) => state.poll);
-  const questionsQueue = useSelector((state) => state.questions);
+export function StartScreen({ onNotify }: ScreenProps) {
+  const dispatch = useAppDispatch();
+  const poll = useAppSelector((state) => state.poll);
+  const questionsQueue = useAppSelector((state) => state.questions);
   const pollId = getInitialPollId();
 
   useEffect(() => {
@@ -41,9 +43,14 @@ export function StartScreen() {
    * в очередь только те вопросы, на которые были даны ответы.
    */
   const handleStartPoll = () => {
+    if (!poll.questions?.length) {
+      onNotify('В данном опросе пока нет доступных вопросов.', 'danger');
+      return;
+    }
+
     if (questionsQueue.length === 0) {
       if (poll.poll_result) {
-        const questions = [];
+        const questions: Question[] = [];
         for (const question of poll.questions) {
           const answersSet = new Set(question.answers.map((answer) => answer.id));
           const answersResult = poll.poll_result.answers.filter((answer) =>
@@ -60,7 +67,7 @@ export function StartScreen() {
       }
     }
 
-    dispatch(navigateTo(routes.QUESTIONS));
+    dispatch(navigateTo(Routes.QuestionsScreen));
   };
 
   return (

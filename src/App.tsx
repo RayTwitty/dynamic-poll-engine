@@ -1,17 +1,24 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Container, Row, Col, Toast, ToastContainer } from 'react-bootstrap';
 
+import { useAppSelector } from '@/hooks/redux';
+import { ToastVariant } from '@/types/ui';
+import { Routes } from '@/slices/routerSlice';
 import { StartScreen } from '@/components/StartScreen/StartScreen';
 import { QuestionsScreen } from '@/components/QuestionsScreen/QuestionsScreen';
 import { FinishScreen } from '@/components/FinishScreen/FinishScreen';
-import { routes } from '@/slices/routerSlice';
+
+interface ToastState {
+  show: boolean;
+  message: string;
+  variant: ToastVariant;
+}
 
 export default function App() {
-  const path = useSelector((state) => state.router.path);
-  const [toast, setToast] = useState({ show: false, message: '', variant: 'success' });
+  const path = useAppSelector((state) => state.router.path);
+  const [toast, setToast] = useState<ToastState>({ show: false, message: '', variant: 'success' });
 
-  const showToast = (message, variant = 'success') => {
+  const showToast = (message: string, variant: ToastVariant = 'success') => {
     setToast({ show: true, message, variant });
   };
 
@@ -21,10 +28,10 @@ export default function App() {
 
   let CurrentScreen;
   switch (path) {
-    case routes.QUESTIONS:
+    case Routes.QuestionsScreen:
       CurrentScreen = QuestionsScreen;
       break;
-    case routes.FINISH_SCREEN:
+    case Routes.FinishScreen:
       CurrentScreen = FinishScreen;
       break;
     default:
