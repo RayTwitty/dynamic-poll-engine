@@ -42,14 +42,21 @@ export default function App() {
     <>
       <Container className="my-4">
         <Row>
-          <Col sm={12} md={{ span: 8, offset: 2 }}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <CurrentScreen onNotify={showToast} />
           </Col>
         </Row>
       </Container>
 
       <ToastContainer position="top-end" className="p-3" style={{ zIndex: 1050 }}>
-        <Toast show={toast.show} onClose={hideToast} delay={4000} autohide bg={toast.variant}>
+        <Toast
+          show={toast.show}
+          onClose={hideToast}
+          delay={4000}
+          autohide
+          bg={toast.variant}
+          className="poll-toast"
+        >
           <Toast.Header closeButton>
             <strong className="me-auto">
               {toast.variant === 'success' ? 'Успешно' : 'Ошибка'}

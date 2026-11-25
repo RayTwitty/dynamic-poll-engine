@@ -27,13 +27,13 @@ export function FinishScreen({ onNotify }: ScreenProps) {
   };
 
   return (
-    <Card className="text-center">
+    <Card className="poll-card text-center">
       <Card.Header>
-        <h3>Опрос завершен, спасибо за участие!</h3>
+        <h3 className="poll-title">Опрос завершен, спасибо за участие!</h3>
       </Card.Header>
 
       <Card.Body>
-        <p>
+        <p className="poll-description">
           {submittedSuccessfully
             ? 'Ваши результаты сохранены. Теперь вы можете посмотреть общую статистику голосования.'
             : 'Перед отправлением опроса вы можете вернуться и проверить свои ответы.'}
@@ -46,9 +46,10 @@ export function FinishScreen({ onNotify }: ScreenProps) {
           <Col sm={{ span: 6, offset: !submittedSuccessfully ? 0 : 3 }} xs={12}>
             <div className="d-grid">
               <Button
-                variant="outline-primary"
+                variant="primary"
                 onClick={handleReviewAnswers}
                 disabled={isSubmitting}
+                className="btn-poll-secondary"
               >
                 {submittedSuccessfully ? 'Посмотреть статистику' : 'Просмотреть ответы'}
               </Button>
@@ -58,7 +59,12 @@ export function FinishScreen({ onNotify }: ScreenProps) {
           {!submittedSuccessfully && (
             <Col sm={6} xs={12}>
               <div className="d-grid">
-                <Button variant="success" onClick={handleSendResults} disabled={isSubmitting}>
+                <Button
+                  variant="primary"
+                  onClick={handleSendResults}
+                  disabled={isSubmitting}
+                  className="btn-poll-primary"
+                >
                   {isSubmitting ? (
                     <>
                       <Spinner as="span" animation="border" size="sm" className="me-2" />

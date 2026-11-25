@@ -1,5 +1,7 @@
 import { Form, ListGroup, ProgressBar } from 'react-bootstrap';
 
+import styles from './AnswerItem.module.css';
+
 import { Answer } from '@/types/poll';
 import { wordDeclension } from '@/shared/utils';
 
@@ -39,39 +41,44 @@ export function AnswerItem({
 
   return (
     <ListGroup.Item>
-      {answer.media && <div dangerouslySetInnerHTML={{ __html: answer.media }} />}
+      <div
+        className={`${styles.answerTile} ${isSelected ? styles.isSelected : ''} ${isDisabled ? styles.isDisabled : ''}`}
+      >
+        {answer.media && <div dangerouslySetInnerHTML={{ __html: answer.media }} />}
 
-      <Form.Check
-        type={isRadio ? 'radio' : 'checkbox'}
-        label={answer.text || 'Свой вариант'}
-        name="answer"
-        id={`answer-${answer.id}`}
-        className={isCustomAnswer ? 'mb-2' : ''}
-        onChange={(e) => onToggle(answer.id, e.target.checked)}
-        checked={isSelected}
-        disabled={isDisabled}
-      />
-
-      {isCustomAnswer && (
-        <Form.Control
-          placeholder="Введите свой вариант ответа"
-          value={customValue}
-          onChange={(e) => onTextChange(answer.id, e.target.value)}
-          disabled={isDisabled || !isSelected}
+        <Form.Check
+          type={isRadio ? 'radio' : 'checkbox'}
+          label={answer.text || 'Свой вариант'}
+          name="answer"
+          id={`answer-${answer.id}`}
+          onChange={(e) => onToggle(answer.id, e.target.checked)}
+          checked={isSelected}
+          disabled={isDisabled}
         />
-      )}
 
-      {isPollCompleted && (
-        <>
-          <ProgressBar
-            now={votesRatio}
-            label={votesRatio > 0 ? `${parseFloat(votesRatio.toFixed(1))}%` : ''}
+        {isCustomAnswer && (
+          <Form.Control
+            placeholder="Введите свой вариант ответа"
+            value={customValue}
+            onChange={(e) => onTextChange(answer.id, e.target.value)}
+            disabled={isDisabled || !isSelected}
+            className={styles.customInput}
           />
-          <span>
-            {`${answer.votes} ${wordDeclension(answer.votes, 'голос', 'голоса', 'голосов')}`}
-          </span>
-        </>
-      )}
+        )}
+
+        {isPollCompleted && (
+          <>
+            <ProgressBar
+              now={votesRatio}
+              label={votesRatio > 0 ? `${parseFloat(votesRatio.toFixed(1))}%` : ''}
+              className="poll-progress"
+            />
+            <span className={styles.votes}>
+              {`${answer.votes} ${wordDeclension(answer.votes, 'голос', 'голоса', 'голосов')}`}
+            </span>
+          </>
+        )}
+      </div>
     </ListGroup.Item>
   );
 }

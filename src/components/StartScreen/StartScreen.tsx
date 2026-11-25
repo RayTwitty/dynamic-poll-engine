@@ -23,17 +23,29 @@ export function StartScreen({ onNotify }: ScreenProps) {
   }, [dispatch, poll.id, pollId]);
 
   if (pollId === null) {
-    return <Alert variant="warning">Идентификатор опроса не указан в ссылке.</Alert>;
+    return (
+      <Card className="poll-card">
+        <Alert variant="warning">
+          <span>Идентификатор опроса не указан в ссылке.</span>
+        </Alert>
+      </Card>
+    );
   }
 
   if (poll.error) {
-    return <Alert variant="danger">Не удалось загрузить опрос: {poll.error}</Alert>;
+    return (
+      <Card className="poll-card">
+        <Alert variant="danger">
+          <span>Не удалось загрузить опрос: {poll.error}</span>
+        </Alert>
+      </Card>
+    );
   }
 
   if (poll.isLoading)
     return (
-      <div className="text-center my-4">
-        <Spinner animation="border" />
+      <div className="poll-card text-center">
+        <Spinner animation="grow" />
       </div>
     );
 
@@ -71,12 +83,12 @@ export function StartScreen({ onNotify }: ScreenProps) {
   };
 
   return (
-    <Card className="text-center">
+    <Card className="poll-card text-center">
       <Card.Header>
-        <h3>{poll.name}</h3>
+        <h3 className="poll-title">{poll.name}</h3>
 
         {poll.completed_at && poll.created_at && (
-          <span>
+          <span className="poll-description">
             {`Период проведения: с ${dateFormat(poll.created_at)} по ${dateFormat(poll.completed_at)}`}
           </span>
         )}
@@ -84,7 +96,10 @@ export function StartScreen({ onNotify }: ScreenProps) {
 
       {poll.description && (
         <Card.Body>
-          <div dangerouslySetInnerHTML={{ __html: poll.description }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: poll.description }}
+            className="poll-description"
+          />
         </Card.Body>
       )}
 
@@ -99,8 +114,8 @@ export function StartScreen({ onNotify }: ScreenProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   download
-                  variant="outline-secondary"
-                  className="d-inline-flex align-items-center justify-content-center gap-2"
+                  variant="primary"
+                  className="d-inline-flex align-items-center justify-content-center gap-2 btn-poll-secondary"
                 >
                   <span>Скачать отчет</span>
                   <Download size={18} />
@@ -111,7 +126,7 @@ export function StartScreen({ onNotify }: ScreenProps) {
 
           <Col sm={{ span: 6, offset: poll.report ? 0 : 3 }} xs={12}>
             <div className="d-grid">
-              <Button variant={poll.completed ? 'primary' : 'success'} onClick={handleStartPoll}>
+              <Button variant="primary" onClick={handleStartPoll} className="btn-poll-primary">
                 {poll.completed ? 'Просмотреть ответы' : 'Начать опрос'}
               </Button>
             </div>

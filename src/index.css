@@ -1,0 +1,224 @@
+:root {
+  /* Палитра цветов */
+  --poll-green: #21a038;
+  --poll-red: #cc2b2b;
+  --poll-green-hover: #1b8a30;
+  --poll-green-active: #167327;
+  --poll-green-tint: #ebf8ee;
+  --poll-gradient: linear-gradient(135deg, #21a038 0%, #08a652 50%, #00c48c 100%);
+
+  /* Фоны и поверхности */
+  --poll-bg-canvas: #f5f7f9;
+  --poll-bg-card: #ffffff;
+  --poll-bg-control: #f5f7f9;
+  --poll-bg-control-hover: #edf1f5;
+
+  /* Текст */
+  --poll-text-primary: #141414;
+  --poll-text-secondary: #757575;
+  --poll-text-muted: #8a8f99;
+
+  /* Bootstrap */
+  --bs-body-bg: var(--poll-bg-canvas);
+  --bs-body-color: var(--poll-text-primary);
+  --bs-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bs-primary: var(--poll-green);
+  --bs-primary-rgb: 33, 160, 56;
+  --bs-border-radius-lg: 24px;
+}
+
+body {
+  background-color: var(--poll-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Основная карточка опроса */
+.poll-card {
+  --bs-card-cap-bg: transparent;
+  --bs-card-border-width: 0;
+
+  width: 100%;
+  background: var(--poll-bg-card);
+  border: none;
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  transition: all 0.25s ease;
+
+  @media (max-width: 576px) {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+
+  .list-group {
+    --bs-list-group-bg: transparent;
+    --bs-list-group-border-width: 0;
+    --bs-list-group-item-padding-x: 0;
+    --bs-list-group-item-padding-y: 6px;
+  }
+
+  .spinner-grow {
+    color: var(--poll-green);
+  }
+
+  /* Внутренние предупреждения */
+  .alert {
+    --bs-alert-color: #080808cc;
+    --bs-alert-border-radius: 8px;
+    --bs-alert-border: 0;
+    --bs-alert-margin-bottom: 0;
+    padding: 16px 24px 16px 48px;
+
+    :before {
+      content: '';
+      background-position: 50%;
+      background-repeat: no-repeat;
+      width: 22px;
+      height: 24px;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+  }
+
+  .alert-warning {
+    --bs-alert-bg: #fff2eb;
+
+    :before {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0zLjUgMTJDMy41IDcuMzA1NTggNy4zMDU1OCAzLjUgMTIgMy41QzE2LjY5NDQgMy41IDIwLjUgNy4zMDU1OCAyMC41IDEyQzIwLjUgMTYuNjk0NCAxNi42OTQ0IDIwLjUgMTIgMjAuNUM3LjMwNTU4IDIwLjUgMy41IDE2LjY5NDQgMy41IDEyWk0xMiAyQzYuNDc3MTUgMiAyIDYuNDc3MTUgMiAxMkMyIDE3LjUyMjggNi40NzcxNSAyMiAxMiAyMkMxNy41MjI4IDIyIDIyIDE3LjUyMjggMjIgMTJDMjIgNi40NzcxNSAxNy41MjI4IDIgMTIgMlpNMTMgOEMxMyA4LjU1MjI4IDEyLjU1MjMgOSAxMiA5QzExLjQ0NzcgOSAxMSA4LjU1MjI4IDExIDhDMTEgNy40NDc3MiAxMS40NDc3IDcgMTIgN0MxMi41NTIzIDcgMTMgNy40NDc3MiAxMyA4Wk0xMiAxMC4yNUMxMi40MTQyIDEwLjI1IDEyLjc1IDEwLjU4NTggMTIuNzUgMTFWMTdDMTIuNzUgMTcuNDE0MiAxMi40MTQyIDE3Ljc1IDEyIDE3Ljc1QzExLjU4NTggMTcuNzUgMTEuMjUgMTcuNDE0MiAxMS4yNSAxN1YxMUMxMS4yNSAxMC41ODU4IDExLjU4NTggMTAuMjUgMTIgMTAuMjVaIiBmaWxsPSIjRkE1RjA1Ii8+Cjwvc3ZnPgo=);
+    }
+  }
+
+  .alert-danger {
+    background-color: #fef1f2;
+
+    :before {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy45NzA2IDMuOTk3MTVDMTMuMTEzNCAyLjQ1NDA4IDEwLjg5NDIgMi40NTQwOCAxMC4wMzY5IDMuOTk3MTVMMi41ODYxOSAxNy40MDg1QzEuNzUzMDIgMTguOTA4MiAyLjgzNzQ1IDIwLjc1MTIgNC41NTMwNCAyMC43NTEySDE5LjQ1NDVDMjEuMTcwMSAyMC43NTEyIDIyLjI1NDUgMTguOTA4MSAyMS40MjE0IDE3LjQwODVMMTMuOTcwNiAzLjk5NzE1Wk0xMS4zNDgyIDQuNzI1NjFDMTEuNjMzOSA0LjIxMTI1IDEyLjM3MzYgNC4yMTEyNSAxMi42NTk0IDQuNzI1NjFMMjAuMTEwMSAxOC4xMzY5QzIwLjM4NzggMTguNjM2OCAyMC4wMjY0IDE5LjI1MTIgMTkuNDU0NSAxOS4yNTEySDQuNTUzMDRDMy45ODExOCAxOS4yNTEyIDMuNjE5NyAxOC42MzY4IDMuODk3NDIgMTguMTM2OUwxMS4zNDgyIDQuNzI1NjFaTTEyLjAwMzggOC4wMDExNUMxMi41NTYxIDguMDAxMTUgMTMuMDAzOCA4LjQ0ODg3IDEzLjAwMzggOS4wMDExNVYxMy4wMDEyQzEzLjAwMzggMTMuNTUzNCAxMi41NTYxIDE0LjAwMTIgMTIuMDAzOCAxNC4wMDEyQzExLjQ1MTUgMTQuMDAxMiAxMS4wMDM4IDEzLjU1MzQgMTEuMDAzOCAxMy4wMDEyVjkuMDAxMTVDMTEuMDAzOCA4LjQ0ODg3IDExLjQ1MTUgOC4wMDExNSAxMi4wMDM4IDguMDAxMTVaTTEzLjAwMzggMTcuMDAxMkMxMy4wMDM4IDE3LjU1MzQgMTIuNTU2MSAxOC4wMDEyIDEyLjAwMzggMTguMDAxMkMxMS40NTE1IDE4LjAwMTIgMTEuMDAzOCAxNy41NTM0IDExLjAwMzggMTcuMDAxMkMxMS4wMDM4IDE2LjQ0ODkgMTEuNDUxNSAxNi4wMDEyIDEyLjAwMzggMTYuMDAxMkMxMi41NTYxIDE2LjAwMTIgMTMuMDAzOCAxNi40NDg5IDEzLjAwMzggMTcuMDAxMloiIGZpbGw9IiNGMzFCMzEiLz4KPC9zdmc+Cg==);
+    }
+  }
+}
+
+/* Типографика */
+.poll-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--poll-text-primary);
+  margin-bottom: 12px;
+}
+
+.poll-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--poll-text-secondary);
+}
+
+/* Прогресс-бар */
+.poll-progress {
+  height: 6px;
+  background-color: #e8ecef;
+  border-radius: 999px;
+  margin-top: 24px;
+
+  .progress-bar {
+    background: var(--poll-gradient);
+    border-radius: 999px;
+    transition: width 0.35s cubic-bezier(0.2, 0, 0, 1);
+  }
+}
+
+/* Кнопки */
+.btn-poll-primary {
+  background-color: var(--poll-green);
+  border: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+
+  &:hover:not(:disabled) {
+    background-color: var(--poll-green-hover);
+    color: #ffffff;
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--poll-green-active);
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    background-color: #d0d7de;
+    color: var(--poll-text-muted);
+    opacity: 1;
+  }
+}
+
+.btn-poll-secondary {
+  background-color: var(--poll-bg-control);
+  border: none;
+  color: var(--poll-text-primary);
+  font-weight: 500;
+  font-size: 15px;
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--poll-bg-control-hover);
+    color: var(--poll-text-primary);
+  }
+}
+
+.btn-poll-ghost {
+  background: transparent;
+  border: none;
+  color: var(--poll-text-secondary);
+  font-weight: 500;
+  font-size: 15px;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 16px;
+
+  &:hover {
+    color: var(--poll-text-primary);
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Всплывающие уведомления */
+.poll-toast {
+  --bs-toast-border-width: 0;
+  --bs-toast-padding-x: 16px;
+  --bs-toast-padding-y: 16px;
+
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  border-radius: 17px;
+
+  &.bg-success {
+    background-color: var(--poll-green) !important;
+  }
+
+  &.bg-danger {
+    background-color: var(--poll-red) !important;
+  }
+
+  .toast-header {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+    .btn-close {
+      margin-right: 0;
+    }
+  }
+}

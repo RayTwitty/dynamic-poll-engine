@@ -1,0 +1,103 @@
+/* Плашка варианта ответа */
+.answer-tile {
+  background-color: var(--poll-bg-control);
+  border: 1.5px solid transparent;
+  border-radius: 16px;
+  padding: 15px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+
+  &:hover:not(.is-disabled):not(.is-selected) {
+    background-color: var(--poll-bg-control-hover);
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  &.is-selected {
+    background-color: var(--poll-green-tint);
+    border-color: var(--poll-green);
+
+    .votes {
+      color: var(--poll-green-active);
+      font-weight: 500;
+    }
+
+    :global(.poll-progress) {
+      background-color: rgba(33, 160, 56, 0.16);
+    }
+  }
+
+  .votes {
+    font-size: 13px;
+    line-height: 1.2;
+    color: var(--poll-text-secondary);
+  }
+
+  :global(.poll-progress) {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    background-color: #e4e7ec;
+  }
+
+  :global(.form-check) {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  :global(.form-check-label) {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+
+  :global(.form-check-input) {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 0;
+    border: 1.5px solid #b8c0cc;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: none !important;
+
+    &:checked {
+      background-color: var(--poll-green);
+      border-color: var(--poll-green);
+    }
+
+    &[type='checkbox'] {
+      border-radius: 6px;
+    }
+  }
+}
+
+/* Поле свободного ввода внутри ответа */
+.custom-input {
+  background-color: #ffffff;
+  border: 1.5px solid #dce1e7;
+  border-radius: 12px;
+  height: 44px;
+  padding: 0 14px;
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--poll-text-primary);
+  transition: all 0.2s ease;
+
+  &:focus {
+    background-color: #ffffff;
+    border-color: var(--poll-green);
+    box-shadow: 0 0 0 3px rgba(33, 160, 56, 0.14);
+    outline: none;
+  }
+
+  &:disabled {
+    color: var(--poll-text-muted);
+  }
+
+  &::placeholder {
+    color: var(--poll-text-muted);
+  }
+}

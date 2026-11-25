@@ -1,5 +1,7 @@
 import { ListGroup, Button, Row, Col, Card, ProgressBar } from 'react-bootstrap';
 
+import styles from './QuestionsScreen.module.css';
+
 import { useQuestionsScreen } from '@/hooks/useQuestionsScreen';
 import { AnswerItem } from './AnswerItem';
 
@@ -34,17 +36,17 @@ export function QuestionsScreen() {
   const isNextDisabled = !poll.completed && (selectedAnswers.length === 0 || hasEmptyCustomAnswer);
 
   return (
-    <Card>
+    <Card className="poll-card">
       <Card.Header className="text-center">
-        <h3>{poll.name}</h3>
-        <ProgressBar now={pollProgress} />
+        <h3 className="poll-title">{poll.name}</h3>
+        <ProgressBar now={pollProgress} className="poll-progress" />
       </Card.Header>
 
       <Card.Body>
-        <p>{curQuestion.text}</p>
+        <p className={styles.questionText}>{curQuestion.text}</p>
 
         {showMaxAnswersHint && (
-          <span className="mt-2">
+          <span className={styles.questionHint}>
             * максимальное количество вариантов ответа: {curQuestion.max_answer}
           </span>
         )}
@@ -73,7 +75,7 @@ export function QuestionsScreen() {
         <Row className="g-2">
           <Col sm={4} xs={12}>
             <div className="d-grid">
-              <Button variant="outline-secondary" onClick={handlePrevButton}>
+              <Button variant="primary" onClick={handlePrevButton} className="btn-poll-secondary">
                 Назад
               </Button>
             </div>
@@ -82,7 +84,11 @@ export function QuestionsScreen() {
           {canSkipQuestion && (
             <Col sm={4} xs={12}>
               <div className="d-grid">
-                <Button variant="outline-warning" onClick={() => handleNextButton(true)}>
+                <Button
+                  variant="primary"
+                  onClick={() => handleNextButton(true)}
+                  className="btn-poll-ghost"
+                >
                   Пропустить
                 </Button>
               </div>
@@ -92,9 +98,10 @@ export function QuestionsScreen() {
           <Col sm={{ span: 4, offset: canSkipQuestion ? 0 : 4 }} xs={12}>
             <div className="d-grid">
               <Button
-                variant={isLastQuestion ? 'success' : 'primary'}
+                variant="primary"
                 disabled={isNextDisabled}
                 onClick={() => handleNextButton(false)}
+                className="btn-poll-primary"
               >
                 {isLastQuestion ? 'Завершить' : 'Далее'}
               </Button>
