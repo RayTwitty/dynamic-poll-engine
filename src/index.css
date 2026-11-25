@@ -174,9 +174,21 @@ body {
   justify-content: center;
   transition: all 0.2s ease;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--poll-bg-control-hover);
     color: var(--poll-text-primary);
+  }
+
+  &:active:not(:disabled) {
+    background-color: #e2e7ee;
+    color: var(--poll-text-primary);
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    background-color: var(--poll-bg-control);
+    color: #b8c0cc;
+    opacity: 1;
   }
 }
 
@@ -190,9 +202,21 @@ body {
   padding: 0 16px;
   border-radius: 16px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     color: var(--poll-text-primary);
     background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(16, 24, 40, 0.08);
+    color: var(--poll-text-primary);
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: #b8c0cc;
+    opacity: 1;
   }
 }
 

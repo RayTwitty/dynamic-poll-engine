@@ -106,7 +106,7 @@ export function StartScreen({ onNotify }: ScreenProps) {
       <Card.Footer>
         <Row className="g-2">
           {poll.report && (
-            <Col sm={6} xs={12}>
+            <Col sm={6} xs={12} className="order-2 order-sm-1">
               <div className="d-grid">
                 <Button
                   as="a"
@@ -124,7 +124,7 @@ export function StartScreen({ onNotify }: ScreenProps) {
             </Col>
           )}
 
-          <Col sm={{ span: 6, offset: poll.report ? 0 : 3 }} xs={12}>
+          <Col sm={{ span: 6, offset: poll.report ? 0 : 3 }} xs={12} className="order-1 order-sm-2">
             <div className="d-grid">
               <Button variant="primary" onClick={handleStartPoll} className="btn-poll-primary">
                 {poll.completed ? 'Просмотреть ответы' : 'Начать опрос'}

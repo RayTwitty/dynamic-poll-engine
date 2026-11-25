@@ -58,6 +58,7 @@ export function AnswerItem({
 
         {isCustomAnswer && (
           <Form.Control
+            id={`answer-text-${answer.id}`}
             placeholder="Введите свой вариант ответа"
             value={customValue}
             onChange={(e) => onTextChange(answer.id, e.target.value)}

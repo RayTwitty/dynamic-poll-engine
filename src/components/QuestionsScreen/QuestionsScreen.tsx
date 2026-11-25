@@ -73,7 +73,7 @@ export function QuestionsScreen() {
 
       <Card.Footer className="text-center">
         <Row className="g-2">
-          <Col sm={4} xs={12}>
+          <Col sm={4} xs={12} className="order-3 order-sm-1">
             <div className="d-grid">
               <Button variant="primary" onClick={handlePrevButton} className="btn-poll-secondary">
                 Назад
@@ -82,7 +82,7 @@ export function QuestionsScreen() {
           </Col>
 
           {canSkipQuestion && (
-            <Col sm={4} xs={12}>
+            <Col sm={4} xs={12} className="order-2 order-sm-2">
               <div className="d-grid">
                 <Button
                   variant="primary"
@@ -95,7 +95,11 @@ export function QuestionsScreen() {
             </Col>
           )}
 
-          <Col sm={{ span: 4, offset: canSkipQuestion ? 0 : 4 }} xs={12}>
+          <Col
+            sm={{ span: 4, offset: canSkipQuestion ? 0 : 4 }}
+            xs={12}
+            className="order-1 order-sm-3"
+          >
             <div className="d-grid">
               <Button
                 variant="primary"

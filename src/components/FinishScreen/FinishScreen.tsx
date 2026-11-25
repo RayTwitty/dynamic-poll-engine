@@ -43,7 +43,11 @@ export function FinishScreen({ onNotify }: ScreenProps) {
       <Card.Footer>
         <Row className="g-2">
           {/* После отправки результатов центрируем оставшуюся кнопку просмотра (offset: 3) */}
-          <Col sm={{ span: 6, offset: !submittedSuccessfully ? 0 : 3 }} xs={12}>
+          <Col
+            sm={{ span: 6, offset: !submittedSuccessfully ? 0 : 3 }}
+            xs={12}
+            className="order-2 order-sm-1"
+          >
             <div className="d-grid">
               <Button
                 variant="primary"
@@ -57,7 +61,7 @@ export function FinishScreen({ onNotify }: ScreenProps) {
           </Col>
 
           {!submittedSuccessfully && (
-            <Col sm={6} xs={12}>
+            <Col sm={6} xs={12} className="order-1 order-sm-2">
               <div className="d-grid">
                 <Button
                   variant="primary"
