@@ -48,15 +48,13 @@ export default function App() {
         </Row>
       </Container>
 
-      <ToastContainer position="top-end" className="p-3" style={{ zIndex: 1050 }}>
-        <Toast
-          show={toast.show}
-          onClose={hideToast}
-          delay={4000}
-          autohide
-          bg={toast.variant}
-          className="poll-toast"
-        >
+      <ToastContainer
+        position="top-end"
+        containerPosition="fixed"
+        className="poll-toast p-3"
+        style={{ zIndex: 1050 }}
+      >
+        <Toast show={toast.show} onClose={hideToast} delay={4000} autohide bg={toast.variant}>
           <Toast.Header closeButton>
             <strong className="me-auto">
               {toast.variant === 'success' ? 'Успешно' : 'Ошибка'}
