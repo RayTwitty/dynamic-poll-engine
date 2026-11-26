@@ -44,7 +44,7 @@ export function StartScreen({ onNotify }: ScreenProps) {
 
   if (poll.isLoading)
     return (
-      <div className="poll-card text-center">
+      <div className="poll-spinner d-flex align-items-center justify-content-center">
         <Spinner animation="grow" />
       </div>
     );

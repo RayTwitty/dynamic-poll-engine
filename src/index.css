@@ -58,10 +58,6 @@ body {
     --bs-list-group-item-padding-y: 6px;
   }
 
-  .spinner-grow {
-    color: var(--poll-green);
-  }
-
   /* Внутренние предупреждения */
   .alert {
     --bs-alert-color: #080808cc;
@@ -259,5 +255,12 @@ body {
     .toast {
       width: 100%;
     }
+  }
+}
+
+/* Индикатор загрузки опроса */
+.poll-spinner {
+  .spinner-grow {
+    color: var(--poll-green);
   }
 }
