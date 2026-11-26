@@ -37,6 +37,7 @@ body {
   --bs-card-cap-bg: transparent;
   --bs-card-border-width: 0;
 
+  max-width: 620px;
   width: 100%;
   background: var(--poll-bg-card);
   border: none;

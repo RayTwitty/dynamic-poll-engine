@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, Row, Col, Toast, ToastContainer } from 'react-bootstrap';
+import { Container, Toast, ToastContainer } from 'react-bootstrap';
 
 import { useAppSelector } from '@/hooks/redux';
 import { ToastVariant } from '@/types/ui';
@@ -40,12 +40,8 @@ export default function App() {
 
   return (
     <>
-      <Container className="my-4">
-        <Row>
-          <Col sm={12} md={{ span: 6, offset: 3 }}>
-            <CurrentScreen onNotify={showToast} />
-          </Col>
-        </Row>
+      <Container className="min-vh-100 d-flex align-items-center justify-content-center p-3">
+        <CurrentScreen onNotify={showToast} />
       </Container>
 
       <ToastContainer
