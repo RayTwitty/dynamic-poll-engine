@@ -31,14 +31,16 @@
   }
 
   .votes {
+    display: block;
     font-size: 13px;
     line-height: 1.2;
     color: var(--poll-text-secondary);
+    margin-bottom: 15px;
   }
 
   :global(.poll-progress) {
-    margin-top: 12px;
-    margin-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 12px;
     background-color: #e4e7ec;
   }
 
@@ -85,7 +87,7 @@
   border-radius: 12px;
   height: 44px;
   padding: 0 14px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   font-size: 15px;
   color: var(--poll-text-primary);
   transition: all 0.2s ease;

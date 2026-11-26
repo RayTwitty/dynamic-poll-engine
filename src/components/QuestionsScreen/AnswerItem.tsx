@@ -36,8 +36,10 @@ export function AnswerItem({
   // Ответ заблокирован, если опрос завершен ИЛИ достигнут лимит выбора
   const isDisabled = isPollCompleted || (!isSelected && isMaxReached);
 
+  const showVotes = totalVotes !== -1;
+
   // Процент голосов для отображения статистики после завершения опроса
-  const votesRatio = answer.votes > 0 && totalVotes > 0 ? (answer.votes / totalVotes) * 100 : 0;
+  const votesRatio = totalVotes > 0 ? Math.round((answer.votes / totalVotes) * 100) : 0;
 
   return (
     <ListGroup.Item>
@@ -67,13 +69,9 @@ export function AnswerItem({
           />
         )}
 
-        {isPollCompleted && (
+        {showVotes && (
           <>
-            <ProgressBar
-              now={votesRatio}
-              label={votesRatio > 0 ? `${parseFloat(votesRatio.toFixed(1))}%` : ''}
-              className="poll-progress"
-            />
+            <ProgressBar now={votesRatio} className="poll-progress" />
             <span className={styles.votes}>
               {`${answer.votes} ${wordDeclension(answer.votes, 'голос', 'голоса', 'голосов')}`}
             </span>

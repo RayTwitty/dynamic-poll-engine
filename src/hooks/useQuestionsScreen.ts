@@ -76,7 +76,7 @@ export const useQuestionsScreen = () => {
   const totalVotes =
     poll.poll_result || poll.submittedSuccessfully
       ? (curQuestion?.answers?.reduce((acc: number, answer) => acc + answer.votes, 0) ?? 0)
-      : 0;
+      : -1;
 
   /**
    * Управляет видимостью связанных вопросов на основе выбранных ответов.
