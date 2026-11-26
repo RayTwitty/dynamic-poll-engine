@@ -12,6 +12,15 @@ describe('shared/utils', () => {
       expect(wordDeclension(21, 'голос', 'голоса', 'голосов')).toBe('голос');
       expect(wordDeclension(0, 'голос', 'голоса', 'голосов')).toBe('голосов');
     });
+
+    it('правильно склоняет слово "вариант" во фразе "до n варианта(ов)"', () => {
+      expect(wordDeclension(1, 'варианта', 'вариантов', 'вариантов')).toBe('варианта');
+      expect(wordDeclension(2, 'варианта', 'вариантов', 'вариантов')).toBe('вариантов');
+      expect(wordDeclension(5, 'варианта', 'вариантов', 'вариантов')).toBe('вариантов');
+      expect(wordDeclension(11, 'варианта', 'вариантов', 'вариантов')).toBe('вариантов');
+      expect(wordDeclension(21, 'варианта', 'вариантов', 'вариантов')).toBe('варианта');
+      expect(wordDeclension(0, 'варианта', 'вариантов', 'вариантов')).toBe('вариантов');
+    });
   });
 
   describe('dateFormat', () => {

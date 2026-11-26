@@ -3,6 +3,7 @@ import { ListGroup, Button, Row, Col, Card, ProgressBar } from 'react-bootstrap'
 import styles from './QuestionsScreen.module.css';
 
 import { useQuestionsScreen } from '@/hooks/useQuestionsScreen';
+import { wordDeclension } from '@/shared/utils';
 import { AnswerItem } from './AnswerItem';
 
 export function QuestionsScreen() {
@@ -27,7 +28,6 @@ export function QuestionsScreen() {
     curQuestion.max_answer !== curQuestion.answers.length;
 
   const canSkipQuestion = !poll.completed && curQuestion.skippable;
-  const isLastQuestion = pollProgress === 100;
 
   const hasEmptyCustomAnswer = curQuestion.answers.some(
     (answer) =>
@@ -42,12 +42,12 @@ export function QuestionsScreen() {
         <ProgressBar now={pollProgress} className="poll-progress" />
       </Card.Header>
 
-      <Card.Body>
+      <Card.Body key={curQuestion.id} className={styles.questionAnimated}>
         <p className={styles.questionText}>{curQuestion.text}</p>
 
         {showMaxAnswersHint && (
           <span className={styles.questionHint}>
-            * максимальное количество вариантов ответа: {curQuestion.max_answer}
+            {`Можно выбрать до ${curQuestion.max_answer} ${wordDeclension(curQuestion.max_answer, 'варианта', 'вариантов', 'вариантов')}`}
           </span>
         )}
 
@@ -107,7 +107,7 @@ export function QuestionsScreen() {
                 onClick={() => handleNextButton(false)}
                 className="btn-poll-primary"
               >
-                {isLastQuestion ? 'Завершить' : 'Далее'}
+                Далее
               </Button>
             </div>
           </Col>

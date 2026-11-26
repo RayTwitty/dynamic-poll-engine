@@ -3,7 +3,7 @@
   background-color: var(--poll-bg-control);
   border: 1.5px solid transparent;
   border-radius: 16px;
-  padding: 15px 18px;
+  padding: 0 18px;
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
@@ -44,19 +44,23 @@
 
   :global(.form-check) {
     display: flex;
+    align-items: center;
     padding-left: 0;
     margin-bottom: 0;
   }
 
   :global(.form-check-label) {
+    width: 100%;
     margin-left: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     cursor: pointer;
   }
 
   :global(.form-check-input) {
     width: 20px;
     height: 20px;
-    margin-top: 2px;
+    margin-top: 0;
     margin-left: 0;
     border: 1.5px solid #b8c0cc;
     background-color: #ffffff;
@@ -81,7 +85,7 @@
   border-radius: 12px;
   height: 44px;
   padding: 0 14px;
-  margin-top: 12px;
+  margin-bottom: 15px;
   font-size: 15px;
   color: var(--poll-text-primary);
   transition: all 0.2s ease;

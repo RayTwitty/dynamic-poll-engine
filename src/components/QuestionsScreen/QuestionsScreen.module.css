@@ -14,3 +14,26 @@
   line-height: 1.4;
   color: var(--poll-text-secondary);
 }
+
+/* Анимация переключения вопросов */
+@keyframes questionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-animated {
+  animation: questionFadeIn 0.25s cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+/* Если пользователь отключил анимации в ОС */
+@media (prefers-reduced-motion: reduce) {
+  .question-animated {
+    animation: none;
+  }
+}
