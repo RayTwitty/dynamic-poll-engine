@@ -138,7 +138,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  transition: none;
 
   &:hover:not(:disabled) {
     background-color: var(--poll-green-hover);
@@ -169,7 +169,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: none;
 
   &:hover:not(:disabled) {
     background-color: var(--poll-bg-control-hover);
@@ -198,6 +198,7 @@ body {
   height: 52px;
   padding: 0 16px;
   border-radius: 16px;
+  transition: none;
 
   &:hover:not(:disabled) {
     color: var(--poll-text-primary);

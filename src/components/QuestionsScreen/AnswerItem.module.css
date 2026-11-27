@@ -90,7 +90,7 @@
   margin-bottom: 18px;
   font-size: 15px;
   color: var(--poll-text-primary);
-  transition: all 0.2s ease;
+  transition: none;
 
   &:focus {
     background-color: #ffffff;
