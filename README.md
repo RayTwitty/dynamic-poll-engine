@@ -4,6 +4,8 @@
 
 🔗 **[Посмотреть Live Demo](https://raytwitty.github.io/dynamic-poll-engine/)**
 
+Модернизированная версия реального продакшн-модуля опросов (ранее внедренного на портале https://narod-expert.ru/), переписанная с нуля с legacy-стека (Class Components / Redux) на современный React, TypeScript и Redux Toolkit.
+
 ---
 
 ## 📋 Ключевая функциональность
@@ -18,9 +20,10 @@
 
 ## 🛠 Технологический стек
 
-- **Core:** React 18+, JavaScript (ES6+) / TypeScript
+- **Core:** TypeScript, React 18+, JavaScript (ES6+)
 - **State Management:** Redux Toolkit (`createSlice`, `createAsyncThunk`)
 - **Сборка и инструменты:** Vite, ESLint, Prettier, Path Aliases (`@/`)
+- **Тестирование:** Vitest
 - **UI и стилизация:** React Bootstrap, Bootstrap Icons, CSS Modules
 
 ---
@@ -32,6 +35,7 @@
 ```text
 src/
 ├── app/          # Конфигурация Redux store и изолированный API-слой с поддержкой моков
+├── types/        # Контракты данных от API и типы UI-компонентов
 ├── slices/       # Redux Toolkit слайсы (управление опросом, очередью вопросов и роутингом)
 ├── hooks/        # Кастомные хуки с инкапсуляцией сложной бизнес-логики (useQuestionsScreen)
 ├── components/   # UI-компоненты и экраны приложения
@@ -69,10 +73,17 @@ src/
    ```
 
 4. **Запустите сервер для разработки:**
+
    ```bash
    npm run dev
    ```
-   Приложение будет доступно по адресу `http://localhost:5173`.
+
+   Приложение будет доступно по адресу: `http://localhost:5173/dynamic-poll-engine/`
+
+5. **Запустите юнит-тесты:**
+   ```bash
+   npm test
+   ```
 
 ---
 
