@@ -4,7 +4,7 @@
 
 🔗 **[Посмотреть Live Demo](https://raytwitty.github.io/dynamic-poll-engine/)**
 
-Модернизированная версия реального продакшн-модуля опросов (ранее внедренного на портале https://narod-expert.ru/), переписанная с нуля с legacy-стека (Class Components / Redux) на современный React, TypeScript и Redux Toolkit.
+> Модернизированная версия реального продакшн-модуля опросов (ранее внедренного на портале [Народная экспертиза](https://narod-expert.ru/)), переписанная с нуля с legacy-стека (Class Components / Redux) на современный React, TypeScript и Redux Toolkit.
 
 ---
 
@@ -88,3 +88,9 @@ src/
 ---
 
 ## 📸 Скриншоты
+
+<p align="center">
+   <img width="32%" alt="1" src="https://github.com/user-attachments/assets/3dae06b0-1089-4f05-a741-a3e464c0b639" />
+   <img width="32%" alt="2" src="https://github.com/user-attachments/assets/b463a0bf-fc26-4a34-860b-59d673653f18" />
+   <img width="32%" alt="3" src="https://github.com/user-attachments/assets/b0d5b6f6-58b1-4be9-be66-5f4547ddc070" />
+</p>
